@@ -81,11 +81,11 @@ iex> {[42], _state} = Lua.eval!(~LUA[return 6 * 7]c)
 iex> lua = Lua.new()
 #PID<0.126.0>
 
-# Set a variable
+# Устанавливаем переменную
 iex> lua = Lua.set!(lua, [:my_var], 42)
 #PID<0.126.0>
 
-# Read it back
+# Читаем её обратно
 iex> {[42], _state} = Lua.eval!(lua, "return my_var")
 {[42], #PID<0.126.0>}
 ```
@@ -134,7 +134,7 @@ defmodule MathAPI do
   deflua power(base, exponent), do: :math.pow(base, exponent)
 end
 
-# Load the API into a Lua state
+# Загружаем API в состояние Lua
 iex> lua = Lua.new() |> Lua.load_api(MathAPI)
 iex> {[16.0], _state} = Lua.eval!(lua, ~LUA[return power(2, 4)])
 {[16.0], #PID<0.129.0>}
@@ -194,7 +194,7 @@ defmodule StringProcessorAPI do
   use Lua.API, scope: "processor"
 
   deflua process_with_lua(text), state do
-    # Call a Lua function to process the text
+    # Вызываем Lua-функцию для обработки текста
     Lua.call_function!(state, [:string, :upper], [text])
   end
 end
@@ -271,7 +271,7 @@ defmodule UserAPI do
   end
 end
 
-# Set up the execution context
+# Настраиваем контекст выполнения
 user = %{id: 1, name: "Alice"}
 permissions = %{1 => ["read_posts", "write_comments"]}
 
@@ -281,7 +281,7 @@ lua =
   |> Lua.put_private(:permissions, permissions)
   |> Lua.load_api(UserAPI)
 
-# User can only access their name and check permissions
+# Пользователь может только получить своё имя и проверить права
 {["Alice"], _state} = Lua.eval!(lua, ~LUA[return user.get_name()])
 {[true], _state} = Lua.eval!(lua, ~LUA[return user.get_permission("read_posts")])
 {[false], _state} = Lua.eval!(lua, ~LUA[return user.get_permission("admin_panel")])
@@ -313,8 +313,8 @@ defmodule PricingAPI do
 
   deflua apply_seasonal_modifier(month), _state do
     modifier = case month do
-      12 -> 0.9  # December discount
-      1 -> 0.95  # January discount
+      12 -> 0.9  # Скидка в декабре
+      1 -> 0.95  # Скидка в январе
       _ -> 1.0
     end
     {[modifier], state}
@@ -358,9 +358,9 @@ final_price = subtotal * (1 - discount) * seasonal_modifier
 return final_price
 """c
 
-# Calculate price for a premium user buying 5 widgets in December
+# Считаем цену для премиум-пользователя, покупающего 5 виджетов в декабре
 price = ConfigEngine.calculate_price("widget", 5, "premium", pricing_script)
-# Result: 50 * 0.8 * 0.9 = 36.0
+# Результат: 50 * 0.8 * 0.9 = 36.0
 ```
 
 ## Обработка ошибок и отладка
