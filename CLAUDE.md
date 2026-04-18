@@ -65,6 +65,12 @@ See `AGENTS.md` for the full style guide. Key points:
 
 Content structure for lessons: brief overview → motivation (2-3 sentences max) → core content with code → connections to related topics.
 
+## Translation Style Guides
+
+Language-specific translation conventions are documented alongside the lessons:
+
+- Russian (`ru`): [`lessons/ru/TRANSLATION.md`](lessons/ru/TRANSLATION.md)
+
 ## Adding New Content
 
 **New lesson:** create `lessons/en/<category>/<lesson>.md` with front matter. A corresponding change in `school_house` may be needed to register it on the website.
