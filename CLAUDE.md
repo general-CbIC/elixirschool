@@ -69,7 +69,7 @@ Content structure for lessons: brief overview → motivation (2-3 sentences max)
 
 Language-specific translation conventions are documented alongside the lessons:
 
-- Russian (`ru`): [`lessons/ru/TRANSLATION.md`](lessons/ru/TRANSLATION.md)
+- Russian (`ru`): [`.claude/locales/ru.md`](.claude/locales/ru.md)
 
 ## Adding New Content
 
