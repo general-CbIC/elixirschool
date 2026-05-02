@@ -1,5 +1,5 @@
 %{
-  version: "1.0.0",
+  version: "1.1.0",
   title: "Installing Phoenix",
   excerpt: """
   With some simple steps you can install and create your first phoenix project
