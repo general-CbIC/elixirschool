@@ -11,7 +11,7 @@
 
 ### Some considerations
 
-Before creating a Phoenix project, we will need to install elixir. The latest version of phoenix framework needs [Elixir 12 or later](https://hexdocs.pm/phoenix/installation.html#erlang-22-or-later) and [Erlang 22 or later](https://hexdocs.pm/phoenix/installation.html#erlang-22-or-later).
+Before creating a Phoenix project, we will need to install elixir. The latest version of phoenix framework needs [Elixir 1.15 or later](https://hexdocs.pm/phoenix/installation.html#elixir-1-15-or-later) and [Erlang 24 or later](https://hexdocs.pm/phoenix/installation.html#erlang-24-or-later).
 
 We'll also need some database to run yotheur application, we recommend you to install PostgreSQL. You can check the [installation guides](https://wiki.postgresql.org/wiki/Detailed_installation_guides) to install it.
 
@@ -84,4 +84,4 @@ mix phx.server
 
 By default, phoenix applications runs at port 4000. If we go to <http://localhost:4000>, we should see this page
 
-![](/images/hello_phoenix.png)
+![Hello Phoenix page](/images/hello_phoenix.png)
